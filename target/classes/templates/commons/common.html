@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header class="header black-bg" th:fragment="topbar">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="index.html" class="logo"><b>QLU<span>FOOTBALL</span></b></a>
+    <!--logo end-->
+    <div class="nav notify-row" id="top_menu">
+        <!--  notification start -->
+        <!--  notification end -->
+    </div>
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" th:href="@{/logout}">注销</a></li>
+        </ul>
+    </div>
+</header>
+<aside th:fragment="sidebar">
+    <div id="sidebar" class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+<!--            <p class="centered"><a href="profile.html"><img th:src="@{/img/ui-sam.jpg}" class="img-circle" width="80"></a>-->
+<!--            </p>-->
+            <h3 class="centered"><b style="color: #E0FFFF">欢迎你</b><br><b style="color: #FFF68F">亲爱的球迷</b></h3>
+            <h3 class="centered"><b style="color: ghostwhite" sec:authentication="name"></b></h3>
+            <li class="mt">
+                <a th:href="@{/}" th:class="${type == 100 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>热门赛程</span>
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 82 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>英超</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/82}">英超赛程</a></li>
+                    <li><a th:href="@{/football/team/82}">英超积分榜</a></li>
+                    <li><a th:href="@{/football/player/82}">英超射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 120 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>西甲</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/120}">西甲赛程</a></li>
+                    <li><a th:href="@{/football/team/120}">西甲积分榜</a></li>
+                    <li><a th:href="@{/football/player/120}">西甲射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 108? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>意甲</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/108}">意甲赛程</a></li>
+                    <li><a th:href="@{/football/team/108}">意甲积分榜</a></li>
+                    <li><a th:href="@{/football/player/108}">意甲射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 129 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>德甲</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/129}">德甲赛程</a></li>
+                    <li><a th:href="@{/football/team/129}">德甲积分榜</a></li>
+                    <li><a th:href="@{/football/player/129}">德甲射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 142 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>法甲</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/142}">法甲赛程</a></li>
+                    <li><a th:href="@{/football/team/142}">法甲积分榜</a></li>
+                    <li><a th:href="@{/football/player/142}">法甲射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 46 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>欧冠</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/46}">欧冠赛程</a></li>
+                    <li><a th:href="@{/football/team/46}">欧冠积分榜</a></li>
+                    <li><a th:href="@{/football/player/46}">欧冠射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 282? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>中超</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/282}">中超赛程</a></li>
+                    <li><a th:href="@{/football/team/282}">中超积分榜</a></li>
+                    <li><a th:href="@{/football/player/282}">中超射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;" th:class="${type == 26 ? 'active' : ''}">
+                    <i class="fa fa-trophy"></i>
+                    <span>亚冠</span>
+                </a>
+                <ul class="sub">
+                    <li><a th:href="@{/football/match/26}">亚冠赛程</a></li>
+                    <li><a th:href="@{/football/team/26}">亚冠积分榜</a></li>
+                    <li><a th:href="@{/football/player/26}">亚冠射手榜</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu" sec:authorize="hasRole('admin')">
+                <a th:href="@{/user/findAll}" th:class="${type == 111 ? 'active' : ''}">
+                    <i class="fa fa-comments-o"></i>
+                    <span>用户管理</span>
+                </a>
+<!--                <ul class="sub">-->
+<!--                    <li><a href="lobby.html">亚冠赛程</a></li>-->
+<!--                    <li><a href="chat_room.html">亚冠积分榜</a></li>-->
+<!--                    <li><a href="lobby.html">亚冠射手榜</a></li>-->
+<!--                </ul>-->
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<footer class="site-footer" th:fragment="footbar">
+    <div class="text-center">
+        <p>
+            &copy; Copyrights <strong>QLU</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+            <!--
+              You are NOT allowed to delete the credit link to TemplateMag with free version.
+              You can delete the credit link only if you bought the pro version.
+              Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+              Licensing information: https://templatemag.com/license/
+            -->
+            Created with QLU template by <a href="https://templatemag.com/">TemplateMag</a>
+        </div>
+        <a href="index.html#" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+</footer>
+</html>

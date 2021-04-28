@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.mapper.PlayerMapper">
+    <select id="findAllPlayerByType" resultMap="baseMap">
+        select * from player where type= #{type} order by goals desc
+    </select>
+    <resultMap id="baseMap" type="com.echo.pojo.Player">
+        <result column="playerId" property="playerId"/>
+        <result column="playerName" property="playerName" />
+        <result column="attPenGoal" property="attPenGoal" />
+        <result column="games" property="games" />
+        <result column="goals" property="goals" />
+        <result column="minsPlayed" property="minsPlayed" />
+        <result column="ontargetScoringAtt" property="ontargetScoringAtt" />
+        <result column="playerlogo" property="playerlogo" />
+        <result column="team" property="team" />
+        <result column="teamId" property="teamId" />
+        <result column="totalScoringAtt" property="totalScoringAtt" />
+        <result column="type" property="type" />
+    </resultMap>
+</mapper>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>用户注册-</title>
+    <meta name="keywords"
+          content="xxx"/>
+    <meta name="description"
+          content="xxx"/>
+    <link rel="stylesheet" th:href="@{/css/reset_register.css}"/>
+    <link rel="stylesheet" th:href="@{/css/common_register.css}"/>
+    <link rel="stylesheet" th:href="@{/css/font-awesome_register.min.css}"/>
+</head>
+<body>
+<div class="wrap login_wrap">
+    <div class="content">
+        <div class="logo"></div>
+        <div class="login_box">
+            <div class="login_form">
+                <div class="login_title">
+                    用户注册
+                </div>
+                <form th:action="@{/toInsert}" method="post">
+                    <div class="form_text_ipt">
+                        <label>
+                            <input name="username" type="text" placeholder="用户名" id="username" onblur="checkUsername()">
+                        </label>
+                    </div>
+                    <div id="err_username" class="ececk_warning" style="display: none"><span>用户名重复</span></div>
+                    <div class="form_text_ipt">
+                        <label>
+                            <input name="phone" type="text" placeholder="手机号" id="phone">
+                        </label>
+                    </div>
+                    <div class="form_text_ipt">
+                        <label>
+                            <input name="password" type="password" placeholder="密码" id="password">
+                        </label>
+                    </div>
+
+                    <div class="form_text_ipt">
+                        <label>
+                            <input name="repassword" type="password" placeholder="重复密码" id="repassword" onblur="checkPassword()">
+                        </label>
+                    </div>
+                    <div id="err_password" class="ececk_warning" style="display: none"><span>两次密码不一致</span></div>
+                    <div class="form_btn">
+                        <button type="submit" onclick="alert('注册成功')">注册</button>
+                    </div>
+                    <div class="form_reg_btn">
+                        <span>已有帐号？</span><a th:href="@{/toLogin}">马上登录</a>
+                    </div>
+                </form>
+                <div class="other_login">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/lib/jquery/jquery.min.js}"></script>
+<script>
+
+    function checkUsername(){
+        var username = document.getElementById("username").value
+        console.log(username)
+        var count = null;
+        $.ajax({
+            type:'GET',
+            async : false,
+            url : "http://localhost:8080/checkUsername/" + username,
+            dataType: 'json',
+            success : function (result) {
+                count = result
+            }
+        });
+        var node = document.getElementById("err_username")
+        if(count != null && count['count'] !== 0){
+            node.style.display = ""
+        }
+        else{
+            node.style.display = "none"
+        }
+    }
+
+    function checkPassword(){
+        var firstInput = document.getElementById("password").value
+        var secondInput = document.getElementById("repassword").value
+        var node = document.getElementById("err_password")
+        if(firstInput !== secondInput){
+            node.style.display = ""
+        }
+        else{
+            node.style.display = "none"
+        }
+    }
+</script>
+<div style="text-align:center;">
+
+</div>
+</body>
+</html>
