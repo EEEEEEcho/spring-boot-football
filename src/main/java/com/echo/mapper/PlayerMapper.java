@@ -7,5 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 @Mapper
 public interface PlayerMapper {
+    //Mybatis
     public List<Player> findAllPlayerByType(@Param("type") Integer type);
 }

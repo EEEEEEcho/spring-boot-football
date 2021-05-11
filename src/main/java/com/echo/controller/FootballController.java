@@ -26,7 +26,7 @@ public class FootballController {
     @Autowired
     private MatchService matchService;
 
-    @GetMapping("/player/{type}")
+    @GetMapping("/player/{type}")//RestFul风格，
     public String getAllPlayers(@PathVariable("type") Integer type, Model model){
         List<Player> players = playerService.findAllPlayerByType(type);
         model.addAttribute("players",players);
